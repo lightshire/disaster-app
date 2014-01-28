@@ -1,5 +1,9 @@
 #Revisions
-	-added Sentry2
+
+##01282014
+	-Added Sentry2
+	-Added Front End UI
+	-Added Bootstrap 3 Framework
 
 #To Install
 	-download an Apache, MySQL and PHP STACK
