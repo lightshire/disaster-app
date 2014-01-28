@@ -11,6 +11,8 @@
 	-download composer.phar from getcomposer.com
 	-php composer install --prefer-dist
 
-Authored By:
+#Credits
+
+#####Authored By:
 	-lightshire
 	-link: http://disaster-app.gopagoda.com
