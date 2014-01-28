@@ -32,6 +32,18 @@
                                 <li><a href="#">About</a></li>
                                 <li><a href="#">Donate</a></li>
                             </ul>
+                            <div class="row">
+                                <div clas="col-md-12">
+                                     <ul class="list-inline">
+                                        <li><a href="#" target="_blank"><img src="/img/footer/1.png"/></a></li>
+                                        <li><a href="#" target="_blank"><img src="/img/footer/2.png"/></a></li>
+                                        <li><a href="#" target="_blank"><img src="/img/footer/3.png"/></a></li>
+                                        <li><a href="#" target="_blank"><img src="/img/footer/4.png"/></a></li>
+                                        <li><a href="#" target="_blank"><img src="/img/footer/5.png"/></a></li>
+                                     
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

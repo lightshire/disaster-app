@@ -90,6 +90,11 @@ html {
     text-align: center;
 }
 
+.footer .credits a img {
+    max-width: 64px;
+    width: 32px;
+}
+
 .footer .credits ul li {
     padding: 10px;
 }
