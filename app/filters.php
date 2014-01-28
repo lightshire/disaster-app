@@ -79,6 +79,21 @@ Route::filter('non-auth', function()
 
 
 /*
+| ------------------------------------------
+| Permission Filter: system
+|-------------------------------------------
+| Filters and catches users who are trying to access system-based permission-required URL.
+| Th user shall be automatically be directed to the /dashboard after loading the filter
+*/
+
+Route::filter('system', function()
+{
+	if(!Sentry::getUser()->hasAccess('system')) {
+		return Redirect::to('/');
+	}
+});
+
+/*
 |--------------------------------------------------------------------------
 | CSRF Protection Filter
 |--------------------------------------------------------------------------

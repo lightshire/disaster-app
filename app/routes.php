@@ -19,6 +19,12 @@ Route::group(array('before'=>'non-authed'), function()
 
 Route::group(array('before'=>'auth', 'prefix'=>'dashboard'), function()
 {
+
+	Route::group(array('before'=>'system'), function()
+	{
+		Route::controller('users','DashboardUsersController');
+	});
+	
 	Route::controller('/', 'DashboardController');
 });
 
