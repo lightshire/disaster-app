@@ -22,7 +22,21 @@
         <![endif]-->
 
         @yield('content')
-
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="credits">
+                            <ul class="list-inline">
+                                <li><a href="#">Contact Us</a></li>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Donate</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.js"></script>
         <script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.10.1.js"><\/script>')</script>
         <script src="/js/bootstrap.min.js" type="text/javascript"></script>

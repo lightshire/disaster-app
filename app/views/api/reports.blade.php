@@ -35,7 +35,7 @@
 					<td>Yolanda</td>
 					<td>50 minutes ago..</td>	
 					<td><a href="#" class="btn btn-success btn-xs">View Details</a></td>
-				</tr>
+				</tr>	
 			</tbody>
 		</table>
 	</div>

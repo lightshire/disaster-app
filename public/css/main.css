@@ -26,3 +26,29 @@ body {
     color: #CCC;
 }
 
+
+
+/*
+ * Footer Fixes
+ --------------/
+ */
+
+
+.footer {
+    border-top: 1px solid #FFF;
+    background: rgba(0, 0, 0, 0.30);
+}
+
+.footer .credits {
+    font-size: 12px;
+    text-align: center;
+}
+
+.footer .credits ul li {
+    padding: 10px;
+}
+
+.footer .credits ul li a {
+    color: #FFF;
+    text-decoration: none;
+}
