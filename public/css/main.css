@@ -1,0 +1,28 @@
+.wrapper {
+    padding: 10px;
+    height: 100%;
+}
+
+body {
+    background: url(../img/bg.jpg) no-repeat;
+    background-size: cover;
+}
+
+.navbar-theme {
+    border-radius: 0;
+    background: rgba(0, 0, 0, 0.60);
+    box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.70);
+}
+
+.navbar-theme a {
+    color: #FFF !important;
+}
+
+.navbar-theme a:hover,
+.navbar-theme .nav > li > a:hover,
+.navbar-theme .nav > li > a:focus,
+.navbar-theme .nav > li > a.active  {
+    background: transparent;
+    color: #CCC;
+}
+

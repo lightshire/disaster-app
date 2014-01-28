@@ -5,7 +5,8 @@
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.1.*",
-		"fideloper/proxy": "dev-master"
+		"fideloper/proxy": "dev-master",
+		  "cartalyst/sentry": "2.1.*"
 	},
 	"autoload": {
 		"classmap": [
