@@ -1,3 +1,20 @@
+<div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="searchModalLabel">Advanced Search..</h4>
+			</div>
+			<div class="modal-body">
+
+			</div>
+			<div class="modal-footer">
+				<button class="btn btn-danger btn-mini" data-dismiss="modal" type="button">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
+
 <div class="row">
 	<div class="col-md-12">
 		<form action="/api/search" method="post" role="form">
@@ -21,7 +38,7 @@
 					<option value="2">Province 2</option>
 				</select>
 			</div>
-			<a href="#" class="btn-link btn pull-left"><i class="glyphicon glyphicon-list-alt"></i>&nbsp;Advanced Search</a>
+			<button type="button" class="btn-link btn pull-left"  data-toggle="modal" data-target="#searchModal"><i class="glyphicon glyphicon-list-alt"></i>&nbsp;Advanced Search</button>
 			<button type="submit" class="btn btn-primary pull-right btn-sm">
 				<i class="glyphicon glyphicon-upload"></i>&nbsp;Search
 			</button>
