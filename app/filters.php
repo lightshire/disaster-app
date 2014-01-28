@@ -35,7 +35,9 @@ App::after(function($request, $response)
 
 Route::filter('auth', function()
 {
-	if (Auth::guest()) return Redirect::guest('login');
+	if(!Sentry::check()) {
+		return Redirect::to('/login');
+	}
 });
 
 
@@ -59,6 +61,22 @@ Route::filter('guest', function()
 {
 	if (Auth::check()) return Redirect::to('/');
 });
+
+
+/*
+|------------------------------------------
+| Not Authed Filter
+|------------------------------------------
+| this filter shall initiate contact with the groups or controllers that should be accessed
+| Only By The Non-logged in users.
+|
+*/
+
+Route::filter('non-auth', function()
+{
+	if(Sentry::check()) return Redirect::to('dashboard');	
+});
+
 
 /*
 |--------------------------------------------------------------------------

@@ -11,4 +11,18 @@
 |
 */
 
+
+Route::group(array('before'=>'non-authed'), function()
+{
+	Route::controller('login','LoginController');
+});
+
+Route::group(array('before'=>'auth', 'prefix'=>'dashboard'), function()
+{
+	Route::controller('/', 'DashboardController');
+});
+
+
+
+
 Route::controller('/','IndexController');

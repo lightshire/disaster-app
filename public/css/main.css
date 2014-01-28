@@ -1,21 +1,37 @@
 .wrapper {
     padding: 10px;
-    height: 100%;
+    min-height: 100%;
+    height: auto !important;
 }
 
 body {
     background: url(../img/bg.jpg) no-repeat;
     background-size: cover;
+    height: 100%;
 }
 
-.navbar-theme {
+html {
+    height: 100%;
+}
+
+.navbar-theme,
+.navbar-theme .dropdown-menu {
     border-radius: 0;
     background: rgba(0, 0, 0, 0.60);
     box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.70);
 }
 
+
 .navbar-theme a {
     color: #FFF !important;
+}
+
+.navbar-theme a:hover,
+.navbar-theme a:focus,
+.navbar-theme .dropdown-menu > li > a:hover,
+.navbar-theme .dropdown-menu > li >a:focus {
+    background: rgba(255, 255, 255, 0.95);
+    color: #000 !important;
 }
 
 .navbar-theme a:hover,
@@ -52,6 +68,7 @@ body {
  .modal-header {
     border: none;
  }
+
 /*
  * Footer Fixes
  --------------/
@@ -76,3 +93,13 @@ body {
     color: #FFF;
     text-decoration: none;
 }
+
+
+/*
+ * Login Fixes
+ --------------/
+ */
+
+ .wrapper .login {
+    margin-top: 100px;
+ }
