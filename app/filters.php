@@ -77,7 +77,12 @@ Route::filter('non-auth', function()
 	if(Sentry::check()) return Redirect::to('dashboard');	
 });
 
-
+Route::filter('barangay', function()
+{
+	if(!Sentry::getUser()->hasAccess('system.barangay')) {
+		return Redirect::to('/');
+	}
+});
 /*
 | ------------------------------------------
 | Permission Filter: system

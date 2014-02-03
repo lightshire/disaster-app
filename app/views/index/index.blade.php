@@ -43,3 +43,7 @@
 	</div>
 </div>	
 @stop
+
+@section('scripts')
+	<script type="text/javascript" src="/js/front.js"></script>
+@stop

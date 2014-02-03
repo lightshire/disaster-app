@@ -29,10 +29,28 @@
 					</a>
 					<ul class="dropdown-menu">
 						<li><a href="/dashboard/settings/regions"><span class="glyphicon glyphicon-globe"></span>&nbsp;Manage Regions..</a></li>
-						<li><a href="/dashboard/settings/regions"><span class="glyphicon glyphicon-leaf"></span>&nbsp;Manage Disaster Types..</a></li>
+						<li><a href="/dashboard/settings/disasters"><span class="glyphicon glyphicon-leaf"></span>&nbsp;Manage Disaster Types..</a></li>
 					</ul>
 				</li>
 			@endif
+
+			@if(Sentry::getUser()->hasAccess('system.barangay'))
+				<li><a href="/dashboard/concerns"><span class="glyphicon glyphicon-road"></span>&nbsp;Public Concerns</a></li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						<span class="glyphicon glyphicon-folder-open"></span>&nbsp;Reports<b class="caret"></b>
+					</a>
+					<ul class="dropdown-menu">
+						<li><a href="/dashboard/b/reports/create"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Submit Reports</a></li>
+						<li><a href="/dashboard/b/reports/"><span class="glyphicon glyphicon-list"></span>&nbsp;All Reports</a></li>
+					</ul>
+				</li>
+			@endif
+
+			@if(Sentry::getUser()->hasAccess('system.provincial'))
+			
+			@endif
+
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
 			<li><a href="/login/signout"><span class="glyphicon-log-out glyphicon"></span>&nbsp;Logout</a></li>

@@ -6,7 +6,8 @@
 	"require": {
 		"laravel/framework": "4.1.*",
 		"fideloper/proxy": "dev-master",
-		  "cartalyst/sentry": "2.1.*"
+		  "cartalyst/sentry": "2.1.*",
+		  "jasonlewis/expressive-date": "1.0.*"
 	},
 	"autoload": {
 		"classmap": [

@@ -55,25 +55,32 @@
 
 <div class="row">
 	<div class="col-md-12">
-		<form action="/api/search" method="post" role="form">
+		<form action="/" method="get" role="form">
 			{{Form::token()}}
 			<input type="hidden" name="_redirect" value="{{ URL::current() }}" />
 			<div class="form-group">
 				<label for="keyword">Keyword/s</label>
-				<input type="text" name="keyword" id="keyword" class="form-control" placeholder="Enter your keywords here" />
+				<input type="text" name="q" id="keyword" class="form-control" placeholder="Enter your keywords here" />
 			</div>
 			<div class="form-group">
-				<label for="region">Region</label>
-				<select name="region" id="region" class="form-control">
-					<option value="1">Region 1</option>
-					<option value="2">Region @</option>
+				<label for="province_id">Province</label>
+				<select name="province_id" id="search_province_id" class="form-control">
+					<option value="0">--Select Province--</option>
+					@foreach(Region::all() as $region)
+						<optgroup label="{{$region->region}}">
+							@foreach($region->provinces as $province)
+								<option value="{{$province->id}}">
+									{{ $province->province_name }}
+								</option>
+							@endforeach
+						</optgroup>
+					@endforeach
 				</select>
 			</div>
-			<div class="form-group">
-				<label for="province">Province</label>
-				<select name="province" id="province" class="form-control">
-					<option value="1">Province 1</option>
-					<option value="2">Province 2</option>
+			<div class="form-group" style="display:none" id="search_town_container">
+				<label class="form-label" for="search_town_id">Barangay</label>
+				<select name="town_id" id="search_town_id" class="form-control">
+
 				</select>
 			</div>
 			<button type="button" class="btn-link btn pull-left"  data-toggle="modal" data-target="#searchModal"><i class="glyphicon glyphicon-list-alt"></i>&nbsp;Advanced Search</button>

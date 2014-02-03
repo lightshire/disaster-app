@@ -10,9 +10,11 @@ class DatabaseSeeder extends Seeder {
 	public function run()
 	{
 		Eloquent::unguard();
-
+		$this->call('LocationSeeder');
 		$this->call('SentryGroupSeeder');
 		$this->call('SentryUsersSeeder');
+		$this->call("BarangayOfficialSeeder");
+		$this->call("ProvincialOfficialSeeder");
 	}
 
 }

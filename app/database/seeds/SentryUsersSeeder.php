@@ -6,12 +6,14 @@
 			DB::table('users')->delete();
 
 			$user = Sentry::createUser(array(
-					'email' 	=> 'gian.santillan@globalwebdynamics.co',
-					'password' 	=> 'giansantillan18',
+					'email' 	=> 'admin@admin.com',
+					'password' 	=> '1234',
 					'activated' => true
 				));
 
 			$adminGroup = Sentry::findGroupByName('Super Administrators');
 			$user->addGroup($adminGroup);
+
+		
 		}
 	}

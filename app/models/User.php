@@ -3,7 +3,7 @@
 use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableInterface;
 
-class User extends Eloquent implements UserInterface, RemindableInterface {
+class User extends Cartalyst\Sentry\Users\Eloquent\User implements UserInterface, RemindableInterface {
 
 	/**
 	 * The database table used by the model.
@@ -18,6 +18,20 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 * @var array
 	 */
 	protected $hidden = array('password');
+
+	public function getPrimaryGroup()
+	{
+		$groups = "";
+		$ctr = 0;
+		foreach($this->getGroups() as $group) {
+			if($ctr != 0)
+				$groups.=" | ".$group->name;
+			else
+				$groups .= $group->name;
+			$ctr++;
+		}
+		return $groups;
+	}
 
 	/**
 	 * Get the unique identifier for the user.
@@ -47,6 +61,11 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	public function getReminderEmail()
 	{
 		return $this->email;
+	}
+
+	public function location()
+	{
+		return $this->hasOne('Location');
 	}
 
 }

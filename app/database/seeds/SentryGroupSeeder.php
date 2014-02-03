@@ -53,7 +53,9 @@
 							'system.conerns.delete' 			=> 1,
 							'system.concerns.update' 			=> 1,
 							'system.concerns.add' 				=> 1,
-							'system.users.mayoral' 				=> 1
+							'system.users.mayoral'				=> 1,
+							'system.provincial'					=> 1
+						
 						)
 				));
 
@@ -96,7 +98,8 @@
 							'system.concerns.read' 		=> 1,
 							'system.conerns.delete' 	=> 1,
 							'system.concerns.update' 	=> 1,
-							'system.concerns.add' 		=> 1
+							'system.concerns.add' 		=> 1,
+							'system.barangay' 			=> 1
 						)
 			));
 

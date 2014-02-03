@@ -5,6 +5,11 @@
 	<div class="wrapper">
 		<div class="row">
 			<div class="col-md-5">
+				@if(Session::get('for') && Session::get('for') == 'users-create')
+					<div class="alert alert-{{ Session::get('type') }}">
+						{{ Session::get('message') }}
+					</div>
+				@endif
 				<div class="panel panel-info">
 					<div class="panel-heading">
 						<div class="panel-title">
@@ -13,9 +18,11 @@
 						</div>
 					</div>
 					<div class="panel-body">
+
 						<h3><span class="glyphicon glyphicon-user"></span>&nbsp;User Information</h3>
 						<hr />
-						<form action="/api/users/" method="post">
+						<form action="/dashboard/users" method="post">
+							{{ Form::token() }}
 							<div class="form-group">
 								<label for="email">Email Address</label>
 								<input type="text" name="email" id="email" placeholder="Enter your email address" class="form-control" />
@@ -50,6 +57,18 @@
 								Save
 							</button>
 						</form>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-7">
+				<div class="panel panel-success">
+					<div class="panel-heading">
+						<div class="panel-title">
+							All Users..
+						</div>
+					</div>
+					<div class="panel-body">
+						{{ View::make('dashboard.users.all') }}
 					</div>
 				</div>
 			</div>
