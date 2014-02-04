@@ -47,7 +47,7 @@
 											@endif
 										</td>
 										<td>
-											<button class="btn btn-xs btn-primary">Attend To</button>
+											<a class="btn btn-xs btn-primary" href="/dashboard/attend-to/{{ $c->id }}">Attend To</a>
 										</td>
 									</tr>
 								</tbody>

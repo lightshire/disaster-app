@@ -41,6 +41,17 @@ Route::group(array('before'=>'auth', 'prefix'=>'dashboard'), function()
 	{
 		Route::resource('concerns', 'DashboardConcernsController');
 		Route::resource('b/reports','BarangayReportsController');
+		Route::get('attend-to/{id}', function($id)
+		{
+			$concerns = Concern::find($id);
+			if(!$concerns) {
+				return Redirect::to('/');
+			}else {
+				$concerns->is_attended = true;
+				$concerns->save();
+			}
+			return Redirect::to(URL::previous());
+		});
 	});
 	Route::controller('/', 'DashboardController');
 });
