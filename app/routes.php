@@ -30,6 +30,8 @@ Route::group(array('before'=>'auth', 'prefix'=>'dashboard'), function()
 		Route::group(array('prefix'=>'settings'), function()
 		{
 			Route::resource('regions','DashboardRegionsController');
+			Route::resource('provinces','DashboardProvincesController');
+			Route::resource('towns', 'DashboardTownsController');
 			Route::resource('disasters', 'DashboardDisastersController');
 		});
 	});

@@ -21,7 +21,8 @@
 					<form action="/dashboard/settings/regions/{{ $region->id }}" method="post">
 						{{ Form::token() }}
 						<input type="hidden" name="_method" value="delete" />
-						<button class="btn btn-danger btn-block btn-sm">DELETE</button>
+						<a class="btn btn-primary btn-sm pull-right" style="margin:0px 10px;" href="/dashboard/settings/regions/{{ $region->id }}">View Details</a>
+						<button class="btn btn-danger btn-sm pull-right">DELETE</button>
 					</form>
 				</td>
 			</tr>

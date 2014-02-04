@@ -1,6 +1,6 @@
 <?php
 
-class DashboardRegionsController extends BaseController {
+class DashboardProvincesController extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.
@@ -10,7 +10,6 @@ class DashboardRegionsController extends BaseController {
 	public function index()
 	{
 		//
-		return Redirect::to('dashboard/settings/regions/create');
 	}
 
 	/**
@@ -21,8 +20,6 @@ class DashboardRegionsController extends BaseController {
 	public function create()
 	{
 		//
-		return View::make('dashboard.settings.regions.index');
-
 	}
 
 	/**
@@ -33,32 +30,35 @@ class DashboardRegionsController extends BaseController {
 	public function store()
 	{
 		//
-		$input  = Input::all();
-		$rules 	= array(
-				'region' => 'required|unique:regions,region'
+		$input = Input::all();
+		$rules = array(
+				'province_name' => 'required',
+				'region_id' 	=> 'required|exists:regions,id'
 			);
 		$validation = Validator::make($input, $rules);
 
 		if($validation->fails()) {
 			$result = array(
-					'type' 		=> 	'danger',
-					'for' 		=> 'regions-create',
-					'message'	=> 'Region should not be blank or should have no duplicate'
+					'message' 	=> 'Please complete all fields',
+					'type' 		=> 'danger',
+					'for' 		=> 'provinces-create'
 				);
+			return Redirect::to($input["_redirect"])->with($result);
 		}else {
-			$region = new Region;
-			$region->region = $input["region"];
-			$region->save();
+			$province = new Province;
+			$province->region_id 		= $input['region_id'];
+			$province->province_name	= $input['province_name'];
+			$province->save();
+
 
 			$result = array(
+					'message' 	=> 'you have successfully saved a new province',
 					'type' 		=> 'success',
-					'for' 		=> 'regions-create',
-					'message' 	=> 'You ahve successfully added a region'
+					'for' 		=> 'provinces-create'
 				);
 		}
 
-		return Redirect::to('/dashboard/settings/regions/create')->with($result);
-
+		return Redirect::to($input['_redirect'])->with($result);
 	}
 
 	/**
@@ -70,13 +70,13 @@ class DashboardRegionsController extends BaseController {
 	public function show($id)
 	{
 		//
+		$province = PRovince::find($id);
 
-		$region = Region::find($id);
-		if(!$region) {
-			return Redirect::to("/");
-		}else {
-			return View::make('dashboard.settings.regions.show')->with('region',$region);
+		if(!$province) {
+			return Redirect::to('/');
 		}
+
+		return View::make('dashboard.settings.provinces.show')->with('province', $province);
 	}
 
 	/**
@@ -100,38 +100,35 @@ class DashboardRegionsController extends BaseController {
 	{
 		//
 
-		$region = Region::find($id);
+		$province = Province::find($id);
 
-		if(!$region) {
-			return Redirect::to("/");
+		if(!$province) {
+			return Redirect::to('/');
 		}else {
-			$result = array();
 			$input = Input::all();
 			$rules = array(
-					'region' 	=> 'required'
+					'province_name' 		=> 'required'
 				);
 
 			$validation = Validator::make($input, $rules);
-
 			if($validation->fails()) {
 				$result = array(
-						'message' 	=> 'Please complete all fields.',
+						'message' 	=> 'Please complete all fields',
 						'type' 		=> 'danger',
-						'for' 		=> 'regions-update'
+						'for' 		=> 'provinces-update'
 					);
 			}else {
-				$region->region = $input['region'];
-				$region->save();
+				$province->province_name = $input["province_name"];
+				$province->save();
 
-				$result  = array(
-						'message' 	=> 'You have successfully upldated the fieldset',
+				$result = array(
+						'message' 	=> 'You have successfully updated a province',
 						'type' 		=> 'success',
-						'for' 		=> 'regions-update'
+						'for' 		=> 'provinces-update'
 					);
 			}
 
-			return Redirect::to('/dashboard/settings/regions/'.$id)->with($result);
-
+			return Redirect::to('dashboard/settings/provinces/'.$id)->with($result);
 		}
 	}
 
@@ -144,12 +141,14 @@ class DashboardRegionsController extends BaseController {
 	public function destroy($id)
 	{
 		//
-		$user = Region::find($id);
+
+		$user = Province::find($id);
+		$reg_id = $user->region_id;
 		if(!$user) {
 			$result = array(
 					'message' 	=> 'An error has occured. The User is not found',
 					'type'		=> 'danger',
-					'for' 		=> 'regions-delete'
+					'for' 		=> 'provinces-delete'
 				);
 		}else {
 			$user->delete();
@@ -157,11 +156,11 @@ class DashboardRegionsController extends BaseController {
 			$result = array(
 					'message' 	=> 'You have successfully deleted the region',
 					'type' 		=> 'success',
-					'for' 		=> 'regions-delete'
+					'for' 		=> 'provinces-delete'
  				);
 		}
 
-		return Redirect::to('dashboard/settings/regions/create')->with($result);
+		return Redirect::to('dashboard/settings/regions/'.$reg_id)->with($result);
 	}
 
 }
