@@ -1,56 +1,53 @@
 <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title" id="searchModalLabel">Advanced Search..</h4>
-			</div>
-			<div class="modal-body">
-				<form action="api/search" method="post" role="form">
-					<div class="form-group">
-						<label for="region">Province</label>
-						<select name="region" id="region" class="form-control">
-							<optgroup label="Region 1">
-								<option value="1">Province 1</option>
-								<option value="2">Province 2</option>
-							</optgroup>
-							<optgroup label="Region 2">
-								<option value="1">Province 1</option>
-								<option value="2">Province 2</option>
-							</optgroup>
-						</select>
-					</div>
-					<div class="form-group">
-						<label for="city">City</label>
-						<select name="city" id="city" class="form-control">
-							<option value="1">Province 1</option>
-							<option value="2">Province 2</option>
-						</select>
-					</div>
-					<div class="form-group">
-						<label for="city">Barangay</label>
-						<select name="city" id="city" class="form-control">
-							<option value="1">Province 1</option>
-							<option value="2">Province 2</option>
-						</select>
-					</div>
-					<div class="form-group">
-						<label for="city">Disaster Type</label>
-						<select name="city" id="city" class="form-control">
-							<option value="1">Province 1</option>
-							<option value="2">Province 2</option>
-						</select>
-					</div>
-				</form>
-			</div>
-			<div class="modal-footer">
-				<button class="btn btn-primary btn-xs" type="submit">
-					<i class="glyphicon glyphicon-upload"></i>&nbsp;Search
-				</button>
-				<button class="btn btn-danger btn-xs " data-dismiss="modal" type="button">Close</button>
+	<form action="/" method="get" role="form">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="searchModalLabel">Advanced Search..</h4>
+				</div>
+				<div class="modal-body">
+					
+						<div class="form-group">
+							<label for="province_id">Province</label>
+							<select name="province_id" id="advanced_search_province_id" class="form-control">
+								<option value="0">--Select Province--</option>
+								@foreach(Region::all() as $region)
+									<optgroup label="{{$region->region}}">
+										@foreach($region->provinces as $province)
+											<option value="{{$province->id}}">
+												{{ $province->province_name }}
+											</option>
+										@endforeach
+									</optgroup>
+								@endforeach
+							</select>
+						</div>
+						<div class="form-group" style="display:none" id="advanced_search_town_container">
+							<label class="form-label" for="search_town_id">Barangay</label>
+							<select name="town_id" id="search_town_id" class="form-control">
+
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="disaster_type">Disaster Type</label>
+							<select name="disaster_id" id="disaster_id" class="form-control">
+								@foreach(Disaster::all() as $disaster)
+									<option value="{{ $disaster->id }}">{{ $disaster->disaster_type }}</option>
+								@endforeach
+							</select>
+						</div>
+					
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-primary btn-xs" type="submit">
+						<i class="glyphicon glyphicon-upload"></i>&nbsp;Search
+					</button>
+					<button class="btn btn-danger btn-xs " data-dismiss="modal" type="button">Close</button>
+				</div>
 			</div>
 		</div>
-	</div>
+	</form>
 </div>
 
 <div class="row">

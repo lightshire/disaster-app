@@ -12,7 +12,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<?php $searched = Report::searchAll(Input::get('q'), Input::get('town_id'))?>
+				<?php $searched = Report::searchAll(Input::get('q'), Input::get('town_id'), Input::get('disaster_id'))?>
 				@foreach($searched as $s)
 					<tr>
 						<td>{{ $s->id }}</td>
