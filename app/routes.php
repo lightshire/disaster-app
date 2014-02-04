@@ -53,6 +53,29 @@ Route::group(array('before'=>'auth', 'prefix'=>'dashboard'), function()
 			return Redirect::to(URL::previous());
 		});
 	});
+
+	Route::group(array('before'=>'provincial'), function()
+	{
+		Route::group(array('prefix'=>'p'), function()
+		{
+			Route::resource('reports','ProvincialReportsController');
+			Route::resource('backtracks', 'ProvincialBacktracksController');
+			Route::get('accept/{id}', function($id)
+			{
+				$report = Report::find($id);
+				// $newReport = $report->replicate();
+				if(!$report) {
+					return Redirect::to('/');
+				}
+
+				$report->status = "in-province";
+				$report->save();
+
+				return Redirect::to(URL::previous());
+			});
+		});
+		
+	});
 	Route::controller('/', 'DashboardController');
 });
 

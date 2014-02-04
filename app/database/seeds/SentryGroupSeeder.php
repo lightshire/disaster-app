@@ -30,7 +30,8 @@
 					'permissions' 	=> array(
 							'system.reports',
 							'system.concerns' 			=> 1,
-							'system.users.provincial'  	=> 1
+							'system.users.provincial'  	=> 1,
+							'system.national' 			=> 1
 						)
 				));
 

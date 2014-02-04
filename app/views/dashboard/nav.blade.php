@@ -10,7 +10,7 @@
 	</div>
 	<div class="collapse navbar-collapse" id="main-nav">
 		<ul class="navbar-nav nav navbar-let">
-			@if(Sentry::getUser()->hasAnyAccess(array('system','system.users','system.users.provincial','system.users.mayoral','system.users.barangay')))
+			@if(Sentry::getUser()->hasAnyAccess(array('system','system.users')))
 			<li class="dropdown">
 				<a href="/dashboard/users" class="dropdown-toggle" data-toggle="dropdown">
 					<span class="glyphicon glyphicon-user"></span>&nbsp;Users&nbsp;<b class="caret"></b>
@@ -48,7 +48,16 @@
 			@endif
 
 			@if(Sentry::getUser()->hasAccess('system.provincial'))
-			
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						<span class="glyphicon glyphicon-list"></span>&nbsp;Reports<b class="caret"></b>
+					</a>
+					<ul class="dropdown-menu">
+						<li><a href="/dashboard/p/reports/create"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Create A Report</li>
+						<li><a href="/dashboard/p/reports"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;All Reports</a></li>
+						<li><a href="/dashboard/p/backtracks"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Barangay Reports</a></li>
+					</ul>
+				</li>
 			@endif
 
 		</ul>

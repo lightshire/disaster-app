@@ -20,7 +20,7 @@
 			$group = Sentry::findGroupByName('Provincial Official');
 			$user->addGroup($group);
 
-			$province = Province::where('province_name','BENGUET')->first();
+			$province = Province::where('province_name','BAGUIO')->first();
 			
 			$location = new Location;
 			$location->user_id = $user->id;

@@ -64,6 +64,7 @@ class BarangayReportsController extends BaseController {
 			$reports->cost 					= $input["cost"];
 			$reports->description 			= $input["description"];
 			$reports->status 				= "in-barangay";
+			$reports->user_id 				= Sentry::getUser()->id;
 			$reports->save();
 
 			$result = array(
