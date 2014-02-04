@@ -47,7 +47,9 @@
 											@endif
 										</td>
 										<td>
-											<a class="btn btn-xs btn-primary" href="/dashboard/attend-to/{{ $c->id }}">Attend To</a>
+											@if(!$c->is_attended)
+												<a class="btn btn-xs btn-primary" href="/dashboard/attend-to/{{ $c->id }}">Attend To</a>
+											@endif
 										</td>
 									</tr>
 								</tbody>
