@@ -1,6 +1,7 @@
 web1:
   document_root: public
   php_version: 5.4.14
+  php_upload_max_filesize: "20M"
   php_extensions:
     - mbstring
     - mcrypt
