@@ -10,11 +10,20 @@
 	</div>
 	<div class="collapse navbar-collapse" id="main-nav">
 		<ul class="navbar-nav nav navbar-right">
-			<li>
-				<a href="/login">
-					<i class="glyphicon glyphicon-user"></i>&nbsp;Login
-				</a>
-			</li>
+			@if(!Sentry::check())
+				<li>
+					<a href="/login">
+						<i class="glyphicon glyphicon-user"></i>&nbsp;Login
+					</a>
+				</li>
+			@else
+				<li>
+					<a href="#">
+						<span class="glyphicon glyphicon-user"></span>&nbsp;{{ Sentry::getUser()->last_name }}, {{ Sentry::getUser()->first_name }}
+					</a>
+				</li>
+				<li><a href="/login/signout"><span class="glyphicon-log-out glyphicon"></span>&nbsp;Logout</a></li>
+			@endif
 		</ul>
 	</div>
 </nav>

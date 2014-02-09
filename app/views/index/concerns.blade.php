@@ -25,6 +25,10 @@
 					@endforeach
 				</select>
 			</div>
+			<div class="form-group" id="concerns_city_container" style="display:none;">
+				<label for="city_id">City</label>
+				<select name="city_id" class="form-control" id="concerns_city_id"></select>
+			</div>
 			<div class="form-group" id="concerns_town_container" style="display:none;">
 				<label for="town_id">Barangay</label>
 				<select name="town_id" class="form-control" id="concerns_town_id"></select>

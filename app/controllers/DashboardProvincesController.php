@@ -70,7 +70,7 @@ class DashboardProvincesController extends \BaseController {
 	public function show($id)
 	{
 		//
-		$province = PRovince::find($id);
+		$province = Province::find($id);
 
 		if(!$province) {
 			return Redirect::to('/');

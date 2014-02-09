@@ -33,6 +33,21 @@
 						</form>
 					</div>
 				</div>
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<div class="panel-title">
+							Upload CSV
+						</div>
+					</div>
+					<div class="panel-body">
+						<div class="alert alert-info">
+							<span class="glyphicon glyphicon-info-sign"></span>&nbsp;You should only use the CSV uploader per region. The format should be consistent and the headers should be the same. Even if the column structure is different, as long as headers remain constant (in name and case), the CSV Plugin will proceed.
+						</div>
+						<form action="/dashboard/settings/uploads/region" method="post" enctype="multipart/form-data">
+							
+						</form>
+					</div>
+				</div>
 			</div>
 			<div class="col-md-8">
 				<div class="panel panel-primary">

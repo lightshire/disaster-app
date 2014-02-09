@@ -17,14 +17,14 @@
 					'activated' 	=> true
 				));
 
-			$group = Sentry::findGroupByName('Provincial Official');
+			$group = Sentry::findGroupByName('Mayoral Official');
 			$user->addGroup($group);
 
-			$province = Province::where('province_name','BAGUIO')->first();
+			$city = City::where('city_name','Baguio')->first();
 			
 			$location = new Location;
 			$location->user_id = $user->id;
-			$location->province_id = $province->id;
+			$location->city_id = $city->id;
 			$location->save();
 		}
 	}

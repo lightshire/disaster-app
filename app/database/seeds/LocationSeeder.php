@@ -6,6 +6,7 @@
 			DB::table('regions')->delete();
 			DB::table('provinces')->delete();
 			DB::table('towns')->delete();
+			DB::table('cities')->delete();
 			$regions = array(
 					'CAR',
 					'REGION I',
@@ -29,8 +30,7 @@
 			$region = Region::where('region','CAR')->first();
 
 			$provinces = array(
-					'BENGUET',
-					'BAGUIO'
+					'BENGUET'
 				);
 
 			for($i = 0; $i < count($provinces); $i++) {
@@ -40,7 +40,14 @@
 				$province->save();
 			}
 
-			$province = Province::where('province_name','BAGUIO')->first();
+			$province = Province::where('province_name','BENGUET')->first();
+
+			$city = new City;
+			$city->city_name 	= "Baguio";
+			$city->province_id 	= $province->id;
+			$city->save();
+
+
 			$towns = array(
 					'Gibraltar',
 					'Pacdal',
@@ -55,7 +62,7 @@
 			for($i = 0; $i < count($towns); $i++) {
 				$town = new Town;
 				$town->town_name 	= $towns[$i];
-				$town->province_id 	= $province->id;
+				$town->city_id	 	= $city->id;
 				$town->save(); 
 			}
 		}

@@ -4,9 +4,9 @@
 		public $timestamps = false;
 		public $softDeletes = false;
 
-		public function towns()
+		public function cities()
 		{
-			return $this->hasMany('Town');
+			return $this->hasMany('City');
 		}
 
 		public function region()

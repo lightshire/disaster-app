@@ -33,7 +33,7 @@ class DashboardTownsController extends \BaseController {
 		$input = Input::all();
 		$rules = array(
 				'town_name' 	=> 'required',
-				'province_id' 	=> 'required|exists:provinces,id'
+				'city_id' 	=> 'required|exists:cities,id'
 			);
 
 		$validation = Validator::make($input, $rules);
@@ -45,7 +45,7 @@ class DashboardTownsController extends \BaseController {
 				);
 		}else {
 			$town = new Town;
-			$town->province_id 	= $input['province_id'];
+			$town->city_id 		= $input['city_id'];
 			$town->town_name 	= $input['town_name'];
 			$town->save();
 

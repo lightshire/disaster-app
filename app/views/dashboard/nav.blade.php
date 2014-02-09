@@ -62,6 +62,11 @@
 
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
+			<li>
+				<a href="#">
+					<span class="glyphicon glyphicon-user"></span>&nbsp;{{ Sentry::getUser()->last_name }}, {{ Sentry::getUser()->first_name }}
+				</a>
+			</li>
 			<li><a href="/login/signout"><span class="glyphicon-log-out glyphicon"></span>&nbsp;Logout</a></li>
 		</ul>
 	</div>

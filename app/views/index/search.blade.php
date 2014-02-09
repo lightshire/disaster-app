@@ -24,8 +24,8 @@
 							</select>
 						</div>
 						<div class="form-group" style="display:none" id="advanced_search_town_container">
-							<label class="form-label" for="search_town_id">Barangay</label>
-							<select name="town_id" id="search_town_id" class="form-control">
+							<label class="form-label" for="advanced_search_town_id">Barangay</label>
+							<select name="town_id" id="advanced_search_town_id" class="form-control">
 
 							</select>
 						</div>
@@ -74,11 +74,13 @@
 					@endforeach
 				</select>
 			</div>
-			<div class="form-group" style="display:none" id="search_town_container">
-				<label class="form-label" for="search_town_id">Barangay</label>
-				<select name="town_id" id="search_town_id" class="form-control">
-
-				</select>
+			<div class="form-group" style="display:none" id="search_city_container">
+				<label class="form-label" for="search_city_id">City</label>
+				<select name="city_id" id="search_city_id" class="form-control"></select>
+			</div>
+			<div class="form-group" style="display:none;" id="search_town_container">
+				<label class="form-label" for="search_town_id">Town</label>
+				<select name="town_id" id="search_town_id" class="form-control"></select>
 			</div>
 			<button type="button" class="btn-link btn pull-left"  data-toggle="modal" data-target="#searchModal"><i class="glyphicon glyphicon-list-alt"></i>&nbsp;Advanced Search</button>
 			<button type="submit" class="btn btn-primary pull-right btn-sm">

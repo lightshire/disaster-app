@@ -31,6 +31,7 @@ Route::group(array('before'=>'auth', 'prefix'=>'dashboard'), function()
 		{
 			Route::resource('regions','DashboardRegionsController');
 			Route::resource('provinces','DashboardProvincesController');
+			Route::resource('cities', 'DashboardCitiesController');
 			Route::resource('towns', 'DashboardTownsController');
 			Route::resource('disasters', 'DashboardDisastersController');
 		});
@@ -82,8 +83,14 @@ Route::group(array('before'=>'auth', 'prefix'=>'dashboard'), function()
 
 Route::get('/api/towns/{id}', function($id) 
 {
-	$province = Province::find($id);
+	$province = City::find($id);
 	return $province->towns;
+});
+
+Route::get('/api/cities/{id}', function($id) 
+{
+	$province = Province::find($id);
+	return $province->cities;
 });
 
 Route::group(array('prefix'=>'public'), function()
