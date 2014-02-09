@@ -34,6 +34,7 @@ Route::group(array('before'=>'auth', 'prefix'=>'dashboard'), function()
 			Route::resource('cities', 'DashboardCitiesController');
 			Route::resource('towns', 'DashboardTownsController');
 			Route::resource('disasters', 'DashboardDisastersController');
+			Route::controller('uploads', 'DashboardUploadsController');
 		});
 	});
 	

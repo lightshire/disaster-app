@@ -43,8 +43,16 @@
 						<div class="alert alert-info">
 							<span class="glyphicon glyphicon-info-sign"></span>&nbsp;You should only use the CSV uploader per region. The format should be consistent and the headers should be the same. Even if the column structure is different, as long as headers remain constant (in name and case), the CSV Plugin will proceed.
 						</div>
-						<form action="/dashboard/settings/uploads/region" method="post" enctype="multipart/form-data">
-							
+						<form action="/dashboard/settings/uploads/region/{{ $region->id }}" method="post" enctype="multipart/form-data">
+							{{ Form::token() }}
+							<input type="hidden" name="_redirect" value="{{ URL::current() }}" />
+							<div class="form-group">
+								<input type="file" accept=".csv" name="regionUploads"/>
+							</div>
+							<button class="btn btn-primary btn-sm pull-right" type="submit">
+							<span class="glyphicon glyphicon-file"></span>&nbsp;
+							Upload
+							</button>
 						</form>
 					</div>
 				</div>

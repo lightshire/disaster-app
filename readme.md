@@ -1,16 +1,3 @@
-#Revisions
-
-###01292014
-	-Added Sentry Groups and Sentry Users Database Seeding
-	-Added Sentry Accesses
-	-Added CSS3 Transition effects for navigation
-	-Added footer links with target="_blank" as per UX dication - external links should not redirect the main page, their call-to-action should initiate with another tab / window
-	-Added /Dashboard/users/create capability to create users (assumed logged-in user has permission 'system')
-	
-####01282014
-	-Added Sentry2
-	-Added Front End UI
-	-Added Bootstrap 3 Framework
 
 #To Install
 	-download an Apache, MySQL and PHP STACK
