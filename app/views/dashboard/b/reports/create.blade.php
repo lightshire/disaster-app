@@ -21,7 +21,7 @@
 							{{ Form::token() }}
 							<div class="form-group">
 								<label class="form-label">Location</label>
-								<input type="text" disabled="disabled" class="form-control" name="town_id" disabled="disabled" value="{{ Sentry::GetUser()->location->town->town_name }}, {{ Sentry::getUser()->location->town->province->province_name }}"/>
+								<input type="text" disabled="disabled" class="form-control" name="town_id" disabled="disabled" value="{{ Sentry::GetUser()->location->town->town_name }}, {{ Sentry::getUser()->location->town->city->province->province_name }}"/>
 							</div>
 							<div class="form-group">
 								<label class="form-label">Disaster Type</label>
