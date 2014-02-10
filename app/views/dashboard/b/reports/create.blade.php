@@ -9,7 +9,7 @@
 					<div class="panel-heading">
 						<div class="panel-title">
 							Report Details..
-						</div>
+						</div>	
 					</div>
 					<div class="panel-body">
 						@if(Session::get('for') && Session::get('for') == 'reports-create')
@@ -19,6 +19,7 @@
 						@endif
 						<form action="/dashboard/b/reports" method="post">
 							{{ Form::token() }}
+							<input type="hidden" id="infra_ids" name="infra_ids"/>
 							<div class="form-group">
 								<label class="form-label">Location</label>
 								<input type="text" disabled="disabled" class="form-control" name="town_id" disabled="disabled" value="{{ Sentry::GetUser()->location->town->town_name }}, {{ Sentry::getUser()->location->town->city->province->province_name }}"/>
@@ -36,11 +37,24 @@
 								<input type="text" name="families_affected" placeholder="Enter then number of families affected" class="form-control" />
 							</div>
 							<div class="form-group">
-								<label class="form-label">Type (DPWH)</label>
-								<select name="infrastructure_type" class="form-control">
+								<label class="form-label">Infrastructures (DPWH)</label>
+								<!-- <select name="infrastructure_type" class="form-control">
 									<option value="bridge">bridge</option>
 									<option value="road">road</option>
-								</select>
+								</select> -->
+								<div class="input-group">
+									<span class="input-group-btn">
+										<a class="btn btn-danger" type='button' id='btn-infra-minus'>
+											<span class='glyphicon glyphicon-minus-sign'></span>
+										</a>
+									</span>
+									<input type="text" name="infrastructures" id="infrastructures" class='form-control' data-toggle='tooltip' readonly="readonly" />
+									<span class="input-group-btn">
+										<a class="btn btn-primary" type='button' id='btn-infra' data-toggle='modal' data-target='#bridgeModal'>
+											<span class='glyphicon glyphicon-plus-sign'></span>
+										</a>
+									</span>
+								</div>
 							</div>
 							<div class="form-group">
 								<label class="form-label">Estimated Cost (PhP)</label>
@@ -60,4 +74,16 @@
 			</div>
 		</div>
 	</div>
+
+
+{{ View::make('dashboard.b.reports.modal-bridge') }}
+@stop
+
+@section('scripts')
+	<script src="/js/json2.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		var town_id = "{{ Sentry::getUser()->location->town_id }}";
+	</script>
+	<script src="/js/bootstrap3-typeahead.js" type="text/javascript"></script>
+	<script src="/js/dashboard.js" type="text/javascript"></script>
 @stop

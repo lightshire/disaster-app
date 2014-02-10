@@ -38,11 +38,11 @@ class BarangayReportsController extends BaseController {
 		$rules = array(
 				'disaster_id' 			=> 'required|exists:disasters,id',
 				'families_affected'		=> 'required',
-				'infrastructure_type'	=> 'required',
+				// 'infrastructure_type'	=> 'required',
 				// 'cost' 					=> 'required',
 				'description' 			=> 'required',
 				'town_id'				=> 'required|exists:towns,id',
-
+				'infra_ids' 			=> 'required'
 			);
 
 		$result = array();
@@ -59,13 +59,17 @@ class BarangayReportsController extends BaseController {
 			$reports = new Report;
 			$reports->town_id 				= $input["town_id"];
 			$reports->disaster_id 			= $input["disaster_id"];
-			$reports->infrastructure_type 	= $input["infrastructure_type"];
 			$reports->families_affected 	= $input["families_affected"];
 			$reports->cost 					= $input["cost"];
 			$reports->description 			= $input["description"];
 			$reports->status 				= "in-barangay";
 			$reports->user_id 				= Sentry::getUser()->id;
 			$reports->save();
+
+			$infra_ids = json_decode($input["infra_ids"]);
+
+			$reports->infrastructures()->sync($infra_ids);
+
 
 			$result = array(
 					'message' 	=> 'You have successfuly added a new report',
@@ -86,6 +90,8 @@ class BarangayReportsController extends BaseController {
 	public function show($id)
 	{
 		//
+		//
+	
 	}
 
 	/**
@@ -119,6 +125,7 @@ class BarangayReportsController extends BaseController {
 	public function destroy($id)
 	{
 		//
+		
 	}
 
 }

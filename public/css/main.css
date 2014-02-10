@@ -69,6 +69,10 @@ html {
     box-shadow: 1px 1px 10px rgba(255, 255, 255, 0.30);
  }
 
+ .modal .close {
+    color: #FFF !important;
+ }
+
  .modal-footer,
  .modal-header {
     border: none;

@@ -27,6 +27,11 @@
 			return $reports;
 		}
 
+		public function infrastructures()
+		{
+			return $this->belongsToMany('Infrastructure');
+		}
+
 		public function town()
 		{
 			return $this->belongsTo('Town');

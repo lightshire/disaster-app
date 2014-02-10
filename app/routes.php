@@ -43,6 +43,7 @@ Route::group(array('before'=>'auth', 'prefix'=>'dashboard'), function()
 	{
 		Route::resource('concerns', 'DashboardConcernsController');
 		Route::resource('b/reports','BarangayReportsController');
+		Route::resource('infras', 'DashboardInfrasController');
 		Route::get('attend-to/{id}', function($id)
 		{
 			$concerns = Concern::find($id);
@@ -54,6 +55,7 @@ Route::group(array('before'=>'auth', 'prefix'=>'dashboard'), function()
 			}
 			return Redirect::to(URL::previous());
 		});
+		// Route::resource();
 	});
 
 	Route::group(array('before'=>'provincial'), function()
@@ -92,6 +94,41 @@ Route::get('/api/cities/{id}', function($id)
 {
 	$province = Province::find($id);
 	return $province->cities;
+});
+
+Route::get('/api/reports/{id}', function($id)
+{
+	$report = Report::with('infrastructures')->find($id);
+	return $report;	
+});
+
+Route::delete('/api/reports/infra/{id}', function($id) {
+	$infra 	= DB::table('infrastructure_report')->where('infrastructure_id', $id)->delete();
+	$result = array();
+	if(!$infra) {
+		$result["success"] = true;
+	}
+	
+
+	$result["success"] = true;
+
+	return $result;
+});
+
+Route::get('api/infras/{id}/{infra_type}', function($id, $infra_type) {
+	$town = Town::find($id);
+	if(!$town) {
+		return array();
+	}else {
+		$keyword 	= Input::get('keyword');
+		$infras		= Infrastructure::where('infra_type',$infra_type)->where('infra_name','like','%'.$keyword.'%')->get();
+		$result 	= array();
+
+		foreach($infras as $infra) {
+			$result[] = $infra->infra_name;
+		}
+		return $result;	
+	}
 });
 
 Route::group(array('prefix'=>'public'), function()
