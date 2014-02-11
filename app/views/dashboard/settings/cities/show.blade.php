@@ -71,6 +71,10 @@
 										<tr>
 											<th>#</th>
 											<th>Name</th>
+											<th>Total Pop.</th>
+											<th>Male</th>
+											<th>Female</th>
+											<th>Families</th>
 											<!-- <th>&nbsp;</th> -->
 										</tr>
 									</thead>
@@ -79,6 +83,10 @@
 											<tr>
 												<td>{{ $town->id }}</td>
 												<td>{{ $town->town_name }}</td>
+												<td>{{ number_format($town->demographics->totalPop(),0,".",",") }}</td>
+												<td>{{ number_format($town->demographics->male_count,0,".",",") }}</td>
+												<td>{{ number_format($town->demographics->female_count,0,".",",") }}</td>
+												<td>{{ $town->demographics->family_count }}</td>
 												<!-- <td><a href="/dashboard/settings/towns/{{$city->id}}" class="pull-right btn btn-primary btn-xs">View Details</a></td> -->
 											</tr>
 										@endforeach

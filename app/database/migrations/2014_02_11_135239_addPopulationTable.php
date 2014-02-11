@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class InfrastructureReportsTable extends Migration {
+class AddPopulationTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -13,10 +13,13 @@ class InfrastructureReportsTable extends Migration {
 	public function up()
 	{
 		//
-		Schema::create('infrastructure_report', function(Blueprint $table) {
+		Schema::create('demographics', function($table) 
+		{
 			$table->increments('id');
-			$table->integer('infrastructure_id');
-			$table->integer('report_id');
+			$table->integer('male_count');
+			$table->integer('female_count');
+			$table->integer('family_count');
+			$table->integer('town_id');
 		});
 	}
 
@@ -28,7 +31,7 @@ class InfrastructureReportsTable extends Migration {
 	public function down()
 	{
 		//
-		Schema::drop('infrastructure_report');
+		Schema::drop('demographics');
 	}
 
 }

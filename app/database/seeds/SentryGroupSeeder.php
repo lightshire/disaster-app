@@ -79,7 +79,7 @@
 							'system.conerns.delete' 				=> 1,
 							'system.concerns.update' 				=> 1,
 							'system.concerns.add' 					=> 1,
-							'system.users.barangay' 				=> 1
+							'system.users.mayoral' 				=> 1
 						)
 				));
 
