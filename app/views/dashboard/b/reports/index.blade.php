@@ -33,7 +33,7 @@
 										<td>{{ $report->disaster->disaster_type }}</td>
 										<td><span class="label label-info">{{ $report->status }}</span></td>
 										<td>{{ $report->description }}</td>
-										
+										git
 										<td>{{ ExpressiveDate::make($report->created_at)->getRelativeDate() }}</td>
 									</tr>
 								@endforeach

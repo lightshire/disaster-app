@@ -17,3 +17,7 @@
 		</div>
 	</div>
 @stop
+
+@section('scripts')
+	<script type="text/javascript" src="/js/p/reports.js"></script>
+@stop

@@ -47,7 +47,7 @@
 				</li>
 			@endif
 
-			@if(Sentry::getUser()->hasAccess('system.provincial'))
+			@if(Sentry::getUser()->hasAccess('system.users.barangay'))
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 						<span class="glyphicon glyphicon-list"></span>&nbsp;Reports<b class="caret"></b>

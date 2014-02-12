@@ -8,4 +8,9 @@
 		{
 			return $this->belongsTo('Town');
 		}
+
+		public function city()
+		{
+			return $this->belongsTo('City');
+		}
 	}

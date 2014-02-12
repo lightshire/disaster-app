@@ -37,6 +37,20 @@
 			return $this->belongsTo('Town');
 		}
 
+		public static function getAllByCity($city_id)
+		{
+			$city 		= City::find($city_id);
+			$towns 		= $city->towns;
+			$townIds 	= array(); 
+
+			foreach($towns as $town)  {
+				$townIds[] = $town->id;
+			}
+
+			return Report::whereIn('town_id', $townIds)->get();
+			
+		}
+
 		public function disaster()
 		{
 			return $this->belongsTo('Disaster');

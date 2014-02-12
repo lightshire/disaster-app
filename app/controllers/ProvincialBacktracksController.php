@@ -10,7 +10,7 @@ class ProvincialBacktracksController extends \BaseController {
 	public function index()
 	{
 		//
-		$prov 		= Province::with('towns')->where('id',Sentry::getUser()->location->province_id)->first();
+		$prov 		= City::with('towns')->where('id',Sentry::getUser()->location->city_id)->first();
 		$towns 		= $prov->towns; 
 		$townArray 	= array();
 		foreach($towns as $town) {
