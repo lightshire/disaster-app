@@ -60,7 +60,7 @@ class BarangayReportsController extends BaseController {
 			$reports->town_id 				= $input["town_id"];
 			$reports->disaster_id 			= $input["disaster_id"];
 			$reports->families_affected 	= $input["families_affected"];
-			$reports->cost 					= $input["cost"];
+			// $reports->cost 					= $input["cost"];
 			$reports->description 			= $input["description"];
 			$reports->status 				= "in-barangay";
 			$reports->user_id 				= Sentry::getUser()->id;

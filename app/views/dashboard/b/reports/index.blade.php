@@ -33,7 +33,6 @@
 										<td>{{ $report->disaster->disaster_type }}</td>
 										<td><span class="label label-info">{{ $report->status }}</span></td>
 										<td>{{ $report->description }}</td>
-										git
 										<td>{{ ExpressiveDate::make($report->created_at)->getRelativeDate() }}</td>
 									</tr>
 								@endforeach
@@ -58,8 +57,8 @@
 							<tr>
 								<th>Infra Type</th>
 								<th>Infra Name</th>
-								<th>Is Passable</th>
 								<th>&nbsp;</th>
+								<th>Is Passable</th>
 							</tr>
 						</thead>
 						<tbody id="specificReportModalContent">
