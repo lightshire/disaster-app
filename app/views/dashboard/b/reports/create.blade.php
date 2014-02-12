@@ -38,10 +38,7 @@
 							</div>
 							<div class="form-group">
 								<label class="form-label">Infrastructures (DPWH)</label>
-								<!-- <select name="infrastructure_type" class="form-control">
-									<option value="bridge">bridge</option>
-									<option value="road">road</option>
-								</select> -->
+
 								<div class="input-group">
 									<span class="input-group-btn">
 										<a class="btn btn-danger" type='button' id='btn-infra-minus'>
@@ -56,13 +53,13 @@
 									</span>
 								</div>
 							</div>
-							<div class="form-group">
+						<!-- 	<div class="form-group">
 								<label class="form-label">Estimated Cost (PhP)</label>
 								<div class="input-group">
 									<input type="text" class="form-control" name="cost" placeholder="Enter the amount here" />
 									<span class="input-group-addon">.00</span>
 								</div>
-							</div>
+							</div> -->
 							<div class="form-group">
 								<label class="form-label">Description</label>
 								<textarea class="form-control" name="description" placeholder="Enter the report's description here" rows="10"></textarea>

@@ -6,7 +6,7 @@
 		
 		public function Report()
 		{
-			return $this->belongsToMany('Report');
+			return $this->belongsToMany('Report')->withPivot('is_passable');
 		}
 
 		public static function createInstance($input) 

@@ -62,13 +62,17 @@ $(document).ready(function() {
 
 	function addToReportForm(data) {
 		var infra 		= data.infra;
-
+		var infraObj 	= {};
 		if(inArray(infra.id, infra_ids)) {
 			return;
 		}
 
 		infra_labels.push(infra.infra_name);
-		infra_ids.push(infra.id);
+		infraObj = {
+			id 			: infra.id,
+			is_passable : $("#infra_is_passable").val()
+		};
+		infra_ids.push(infraObj);
 		deployArrayToField(infra_labels, $("#infrastructures"));
 		$("#infra_ids").val(JSON.stringify(infra_ids));
 	}

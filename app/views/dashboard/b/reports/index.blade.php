@@ -21,7 +21,7 @@
 									<th>Disaster Type</th>
 									<th>Status</th>
 									<th>Description</th>
-									<th>Cost</th>
+									<!-- <th>Cost</th> -->
 									<th>Date of Creation</th>
 								</tr>
 							</thead>
@@ -33,7 +33,7 @@
 										<td>{{ $report->disaster->disaster_type }}</td>
 										<td><span class="label label-info">{{ $report->status }}</span></td>
 										<td>{{ $report->description }}</td>
-										<td>{{ number_format($report->cost,2,".",",") }}</td>
+										
 										<td>{{ ExpressiveDate::make($report->created_at)->getRelativeDate() }}</td>
 									</tr>
 								@endforeach
@@ -58,6 +58,7 @@
 							<tr>
 								<th>Infra Type</th>
 								<th>Infra Name</th>
+								<th>Is Passable</th>
 								<th>&nbsp;</th>
 							</tr>
 						</thead>

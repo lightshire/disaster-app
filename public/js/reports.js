@@ -5,13 +5,20 @@ $(document).ready(function() {
 
 		$.get(url,{}, function(data) {
 			var infra 		= data.infrastructures;
+			var pivot 		= null;
 			var container	= $("#specificReportModalContent");
 			container.html("");
 			for(var i = 0; i < infra.length; i++) {
+				pivot 	= infra[i].pivot;
 				var content = "<tr data-infra-id='"+infra[i].id+"'>";
 				content += "<td>"+infra[i].infra_type+"</td>";
 				content += "<td>"+infra[i].infra_name+"</td>";
 				content += "<td><button class='btn btn-danger btn-xs btn-infra-trash' data-infra-id='"+infra[i].id+"'><span class='glyphicon glyphicon-trash'></span>&nbsp;Remove</button></td>";
+				if(pivot.is_passable == "1") {
+					content += "<td><span class='label label-success'>Is Passable</span></td>";
+				}else {
+					content += "<td><span class='label label-danger'>Not Passable</span></td>";
+				}
 				content += "</tr>";	
 				container.append(content);
 			}

@@ -29,7 +29,7 @@
 
 		public function infrastructures()
 		{
-			return $this->belongsToMany('Infrastructure');
+			return $this->belongsToMany('Infrastructure')->withPivot('is_passable');
 		}
 
 		public function town()

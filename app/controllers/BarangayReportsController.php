@@ -68,8 +68,14 @@ class BarangayReportsController extends BaseController {
 
 			$infra_ids = json_decode($input["infra_ids"]);
 
-			$reports->infrastructures()->sync($infra_ids);
+			foreach($infra_ids as $inf) {
 
+				$reports->infrastructures()->attach($inf->id,array(
+						'is_passable' 	=> $inf->is_passable
+					));
+			}
+
+			// $reports->infrastructures()->attach($infra_ids);
 
 			$result = array(
 					'message' 	=> 'You have successfuly added a new report',
